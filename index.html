@@ -5,16 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#181816" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- SEO primario -->
   <title>Nive Beauty | Cosmetología integral · Monte Grande</title>
-  <meta name="description" content="Nive Beauty – Cosmetología integral y estética en Monte Grande. Faciales, uñas, pestañas y más. Donde tu piel se renueva." />
+  <meta name="description" content="Nive Beauty – Cosmetología integral y estética en Monte Grande. Limpieza facial, DermaPen, extensiones de pestañas, uñas y más. Donde tu piel se renueva." />
+  <meta name="keywords" content="estética Monte Grande, cosmetología Monte Grande, limpieza facial Monte Grande, extensiones pestañas Monte Grande, uñas Monte Grande, DermaPen, lifting pestañas, Nive Beauty" />
+  <meta name="author" content="Nive Beauty" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nivebeauty.com.ar" />
+
+  <!-- Geo / SEO local -->
+  <meta name="geo.region" content="AR-B" />
+  <meta name="geo.placename" content="Monte Grande, Buenos Aires, Argentina" />
+  <meta name="geo.position" content="-34.8197;-58.4717" />
+  <meta name="ICBM" content="-34.8197, -58.4717" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:title" content="Nive Beauty | Cosmetología integral · Monte Grande" />
+  <meta property="og:description" content="Más que un turno de estética, una experiencia de bienestar, relajación y belleza en Monte Grande." />
+  <meta property="og:url" content="https://nivebeauty.com.ar" />
+  <meta property="og:image" content="https://nivebeauty.com.ar/imagenes/make.jpg" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Nive Beauty" />
+  <meta property="business:contact_data:street_address" content="Lavalle 356" />
+  <meta property="business:contact_data:locality" content="Monte Grande" />
+  <meta property="business:contact_data:region" content="Buenos Aires" />
+  <meta property="business:contact_data:country_name" content="Argentina" />
+  <meta property="business:contact_data:phone_number" content="+54-9-11-5872-5672" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nive Beauty | Cosmetología integral" />
+  <meta name="twitter:description" content="Cosmetología integral y estética en Monte Grande. Donde tu piel se renueva." />
+  <meta name="twitter:image" content="https://nivebeauty.com.ar/imagenes/make.jpg" />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Nive Beauty",
+    "description": "Cosmetología integral y estética en Monte Grande. Faciales, uñas, pestañas y más.",
+    "url": "https://nivebeauty.com.ar",
+    "telephone": "+54-9-11-5872-5672",
+    "image": "https://nivebeauty.com.ar/imagenes/make.jpg",
+    "logo": "https://nivebeauty.com.ar/imagenes/logo.jpg",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lavalle 356",
+      "addressLocality": "Monte Grande",
+      "addressRegion": "Buenos Aires",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -34.8197,
+      "longitude": -58.4717
+    },
+    "sameAs": ["https://www.instagram.com/nivebeauty_/"],
+    "hasMap": "https://maps.google.com/maps?q=Lavalle+356,+Monte+Grande,+Buenos+Aires",
+    "servesCuisine": null,
+    "currenciesAccepted": "ARS",
+    "paymentAccepted": "Cash, Credit Card",
+    "areaServed": {
+      "@type": "City",
+      "name": "Monte Grande"
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/jpeg" href="imagenes/logo.jpg" />
   <link rel="apple-touch-icon" href="imagenes/logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <link rel="stylesheet" href="css/styles.css?v=5" />
   <style>
-    /* nav siempre transparente al inicio, oscuro solo al hacer scroll */
     .nav { background: transparent !important; }
     .nav.scrolled { background: rgba(24,24,22,.95) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; }
   </style>
@@ -27,17 +95,33 @@
       <a href="#inicio" class="nav__brand">
         <img src="imagenes/logo.jpg" alt="Nive Beauty" />
       </a>
-      <ul class="nav__links" id="navLinks">
+      <ul class="nav__links">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#nosotras">Nosotras</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <button class="nav__burger" id="burger" aria-label="Menú">
+      <button class="nav__burger" id="burger" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
+
+  <!-- DRAWER (menú lateral mobile) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Menú">
+    <button class="drawer__close" id="drawerClose" aria-label="Cerrar menú">✕</button>
+    <img src="imagenes/logo.jpg" alt="Nive Beauty" class="drawer__logo" />
+    <ul class="drawer__links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#nosotras">Nosotras</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/5491158725672?text=Hola!%20Quisiera%20reservar%20un%20turno" target="_blank" rel="noopener" class="drawer__cta">
+      Reservar turno
+    </a>
+  </aside>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
@@ -50,7 +134,7 @@
         <a href="https://wa.me/5491158725672" target="_blank" rel="noopener" class="btn btn--outline">
           Reservar turno
         </a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Lavalle+356,+Monte+Grande,+Buenos+Aires,+Argentina" target="_blank" rel="noopener" class="btn btn--ghost">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Lavalle+356,+Monte+Grande,+Buenos+Aires,+Argentina" target="_blank" rel="noopener" class="btn btn--outline">
           Cómo llegar
         </a>
       </div>
@@ -66,7 +150,6 @@
         <h2 class="section-title">Servicios</h2>
       </header>
       <div class="servicios__grid">
-
         <article class="servicio-card">
           <div class="servicio-card__deco">✦</div>
           <h3>Cosmetología</h3>
@@ -78,7 +161,6 @@
             <li>Maquillaje profesional</li>
           </ul>
         </article>
-
         <article class="servicio-card">
           <div class="servicio-card__deco">✦</div>
           <h3>Uñas</h3>
@@ -90,7 +172,6 @@
             <li>Polygel</li>
           </ul>
         </article>
-
         <article class="servicio-card">
           <div class="servicio-card__deco">✦</div>
           <h3>Pestañas</h3>
@@ -102,7 +183,6 @@
             <li>Laminado</li>
           </ul>
         </article>
-
       </div>
     </div>
   </section>
@@ -112,9 +192,7 @@
     <div class="valores__inner">
       <span class="section-eyebrow">Nuestra filosofía</span>
       <h2 class="valores__titulo">Más que un turno.<br><em>Una experiencia.</em></h2>
-      <p class="valores__bajada">
-        Creamos un espacio de bienestar, relajación y belleza. Un lugar pensado para que te desconectes, te cuides y te sientas bien en cada detalle.
-      </p>
+      <p class="valores__bajada">Creamos un espacio de bienestar, relajación y belleza. Un lugar pensado para que te desconectes, te cuides y te sientas bien en cada detalle.</p>
       <div class="valores__pilares">
         <div class="pilar">
           <span class="pilar__num">01</span>
@@ -144,28 +222,28 @@
       </header>
       <div class="galeria__grid">
         <div class="galeria__item g-tall">
-          <img src="imagenes/make.jpg" alt="Maquillaje profesional" loading="lazy" />
+          <img src="imagenes/make.jpg" alt="Maquillaje profesional Nive Beauty Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item">
-          <img src="imagenes/unas.jpg" alt="Uñas" loading="lazy" />
+          <img src="imagenes/unas.jpg" alt="Uñas semi permanente Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item">
-          <img src="imagenes/pestanas.jpg" alt="Pestañas" loading="lazy" />
+          <img src="imagenes/pestanas.jpg" alt="Extensiones de pestañas Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item g-wide">
-          <img src="imagenes/micro.jpg" alt="Microblading" loading="lazy" />
+          <img src="imagenes/micro.jpg" alt="Microblading cejas Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item">
-          <img src="imagenes/rostro.jpg" alt="Tratamiento facial" loading="lazy" />
+          <img src="imagenes/rostro.jpg" alt="Limpieza facial profunda Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item g-wide">
-          <img src="imagenes/laminado.jpg" alt="Laminado de pestañas" loading="lazy" />
+          <img src="imagenes/laminado.jpg" alt="Laminado de pestañas Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item g-wide">
-          <img src="imagenes/aestehic.jpg" alt="Nive Beauty" loading="lazy" />
+          <img src="imagenes/aestehic.jpg" alt="Nive Beauty estética Monte Grande" loading="lazy" />
         </div>
         <div class="galeria__item">
-          <img src="imagenes/unas2.jpg" alt="Uñas clásicas" loading="lazy" />
+          <img src="imagenes/unas2.jpg" alt="Uñas clásicas Monte Grande" loading="lazy" />
         </div>
       </div>
     </div>
@@ -174,7 +252,7 @@
   <!-- NOSOTRAS -->
   <section class="nosotras" id="nosotras">
     <div class="nosotras__image">
-      <img src="imagenes/vaso-cafe.png" alt="Nive Beauty Studio" loading="lazy" />
+      <img src="imagenes/vaso-cafe.png" alt="Nive Beauty Studio Monte Grande" loading="lazy" />
     </div>
     <div class="nosotras__text">
       <span class="section-eyebrow">Quiénes somos</span>
@@ -219,7 +297,7 @@
         <div class="contacto__mapa">
           <iframe
             src="https://maps.google.com/maps?q=Lavalle+356,+Monte+Grande,+Buenos+Aires,+Argentina&output=embed&hl=es&z=16"
-            title="Ubicación Nive Beauty"
+            title="Ubicación Nive Beauty - Lavalle 356 Monte Grande"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
@@ -233,7 +311,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <img src="imagenes/logo.jpg" alt="Nive Beauty" class="footer__logo" />
-      <p>© 2025 Nive Beauty · Cosmetología integral</p>
+      <p>© 2025 Nive Beauty · Cosmetología integral · Monte Grande</p>
       <a href="https://www.instagram.com/nivebeauty_/" target="_blank" rel="noopener" class="footer__ig">@nivebeauty_</a>
     </div>
   </footer>
@@ -247,6 +325,6 @@
     </svg>
   </a>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

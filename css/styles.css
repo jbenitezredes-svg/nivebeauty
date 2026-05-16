@@ -191,29 +191,102 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .nav__burger { display: flex; }
-  .nav__links {
-    position: fixed;
-    top: var(--nav-h);
-    left: 0; right: 0;
-    background: rgba(24,24,22,.98);
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 1.5rem 0 2.5rem;
-    transform: translateY(-110%);
-    transition: transform var(--transition);
-    pointer-events: none;
-  }
-  .nav__links.open {
-    transform: translateY(0);
-    pointer-events: all;
-  }
-  .nav__links li { width: 100%; text-align: center; }
-  .nav__links a {
-    display: block;
-    padding: 1rem;
-    font-size: .75rem;
-  }
+  .nav__links { display: none; }
+}
+
+/* ── DRAWER lateral (mobile) ───────────────────── */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: 280px;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--dark-2);
+  border-left: 1px solid rgba(255,255,255,.06);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform .38s var(--ease);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem 3rem;
+  gap: 2.5rem;
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer__close {
+  position: absolute;
+  top: 1.4rem; right: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--gray-light);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color var(--transition);
+  line-height: 1;
+}
+.drawer__close:hover { color: var(--white); }
+
+.drawer__logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: .85;
+  margin-top: 1rem;
+}
+
+.drawer__links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.drawer__links a {
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  display: block;
+  transition: color var(--transition), padding-left var(--transition);
+}
+.drawer__links a:hover {
+  color: var(--white);
+  padding-left: .4rem;
+}
+
+.drawer__cta {
+  display: block;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: .9rem;
+  border: 1px solid rgba(255,255,255,.3);
+  color: var(--cream);
+  transition: all var(--transition);
+}
+.drawer__cta:hover {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--white);
 }
 
 /* ── HERO ──────────────────────────────────────── */

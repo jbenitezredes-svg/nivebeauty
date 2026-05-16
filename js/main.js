@@ -4,20 +4,32 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, { passive: true });
 
-// ── Burger menu ──────────────────────────────────
-const burger = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
+// ── Drawer lateral ───────────────────────────────
+const burger       = document.getElementById('burger');
+const drawer       = document.getElementById('drawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const drawerClose  = document.getElementById('drawerClose');
 
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
+function openDrawer() {
+  drawer.classList.add('open');
+  drawerOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  burger.setAttribute('aria-expanded', 'true');
+}
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
+function closeDrawer() {
+  drawer.classList.remove('open');
+  drawerOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+  burger.setAttribute('aria-expanded', 'false');
+}
+
+burger.addEventListener('click', openDrawer);
+drawerClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
+
+drawer.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeDrawer);
 });
 
 // ── Parallax hero ────────────────────────────────
@@ -37,10 +49,9 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-const targets = document.querySelectorAll(
-  '.servicio-card, .galeria__item, .nosotras__text, .nosotras__image, .contacto__info, .contacto__mapa, .section-header'
-);
-targets.forEach(el => {
+document.querySelectorAll(
+  '.servicio-card, .galeria__item, .nosotras__text, .nosotras__image, .contacto__info, .contacto__mapa, .section-header, .pilar'
+).forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
