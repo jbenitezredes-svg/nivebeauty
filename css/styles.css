@@ -25,7 +25,11 @@
 
 /* ── Reset ─────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background: var(--dark); /* evita cualquier gap blanco/negro en iOS */
+}
 body {
   font-family: var(--font-sans);
   font-weight: 300;
@@ -105,8 +109,7 @@ ul { list-style: none; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
-  padding-top: env(safe-area-inset-top, 0px);
+  height: var(--nav-h);
   transition: background var(--transition), backdrop-filter var(--transition);
 }
 .nav.scrolled {
@@ -196,12 +199,15 @@ ul { list-style: none; }
 /* ── HERO ──────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100svh; /* small viewport height — se adapta a la barra de Safari en iOS */
   min-height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+@supports not (height: 100svh) {
+  .hero { height: 100vh; }
 }
 
 .hero__bg {
@@ -232,7 +238,7 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 1.8rem;
-  padding: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + 2rem) 2rem 2rem;
+  padding: calc(var(--nav-h) + 2rem) 2rem 2rem;
 }
 
 .hero__logo {
