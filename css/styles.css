@@ -110,6 +110,8 @@ ul { list-style: none; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
+  /* gradiente siempre visible — se funde con el hero, no hay barra negra */
+  background: linear-gradient(to bottom, rgba(24,24,22,.75) 0%, rgba(24,24,22,0) 100%);
   transition: background var(--transition), backdrop-filter var(--transition);
 }
 .nav.scrolled {
@@ -565,6 +567,12 @@ ul { list-style: none; }
   letter-spacing: .02em;
 }
 .contacto__item a:hover { color: var(--white); }
+
+.contacto__btns {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
 
 .contacto__mapa {
   height: 420px;
