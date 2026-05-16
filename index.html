@@ -13,6 +13,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css?v=4" />
+  <style>
+    /* nav siempre transparente al inicio, oscuro solo al hacer scroll */
+    .nav { background: transparent !important; }
+    .nav.scrolled { background: rgba(24,24,22,.95) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; }
+  </style>
 </head>
 <body>
 
@@ -41,9 +46,14 @@
       <img src="imagenes/logo.jpg" alt="Nive Beauty" class="hero__logo" />
       <p class="hero__tagline">Cosmetología integral · Estética</p>
       <h1 class="hero__slogan">Donde tu piel<br><em>se renueva</em></h1>
-      <a href="https://wa.me/5491158725672" target="_blank" rel="noopener" class="btn btn--outline">
-        Reservar turno
-      </a>
+      <div class="hero__btns">
+        <a href="https://wa.me/5491158725672" target="_blank" rel="noopener" class="btn btn--outline">
+          Reservar turno
+        </a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Lavalle+356,+Monte+Grande,+Buenos+Aires,+Argentina" target="_blank" rel="noopener" class="btn btn--ghost">
+          Cómo llegar
+        </a>
+      </div>
     </div>
     <div class="hero__scroll"><span></span></div>
   </section>
