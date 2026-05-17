@@ -81,7 +81,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
   <style>
     .nav { background: transparent !important; }
     .nav.scrolled { background: rgba(24,24,22,.95) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; }
@@ -126,10 +126,18 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero__bg">
-      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="imagenes/make.jpg">
-        <source src="videos/hero.webm?v=2" type="video/webm" />
-        <source src="videos/hero.mp4?v=2" type="video/mp4" />
-      </video>
+      <div class="hero__split hero__split--left">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="imagenes/unas.jpg">
+          <source src="videos/hero.webm?v=2" type="video/webm" />
+          <source src="videos/hero.mp4?v=2" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero__split hero__split--right">
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="imagenes/rostro.jpg">
+          <source src="videos/tratamiento.webm?v=1" type="video/webm" />
+          <source src="videos/tratamiento.mp4?v=1" type="video/mp4" />
+        </video>
+      </div>
     </div>
     <button class="hero__sound" id="soundToggle" aria-label="Activar sonido">
       <svg class="icon-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
