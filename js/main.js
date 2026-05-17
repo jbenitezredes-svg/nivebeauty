@@ -32,6 +32,19 @@ drawer.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', closeDrawer);
 });
 
+// ── Toggle sonido hero ───────────────────────────
+const heroVideo   = document.getElementById('heroVideo');
+const soundToggle = document.getElementById('soundToggle');
+const iconMuted   = soundToggle.querySelector('.icon-muted');
+const iconSound   = soundToggle.querySelector('.icon-sound');
+
+soundToggle.addEventListener('click', () => {
+  heroVideo.muted = !heroVideo.muted;
+  iconMuted.style.display = heroVideo.muted ? '' : 'none';
+  iconSound.style.display = heroVideo.muted ? 'none' : '';
+  soundToggle.setAttribute('aria-label', heroVideo.muted ? 'Activar sonido' : 'Silenciar');
+});
+
 // ── Parallax hero ────────────────────────────────
 const heroBg = document.querySelector('.hero__bg');
 window.addEventListener('scroll', () => {
